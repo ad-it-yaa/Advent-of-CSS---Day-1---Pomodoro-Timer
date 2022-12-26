@@ -82,6 +82,7 @@ function start()
         if(sec<10)
         {
             sec="0"+sec
+            min="0"+min
             
         }
         else if(min<10)
