@@ -34,7 +34,6 @@ function start()
     var temp1 = minute.innerHTML * 60;
     temp2 = parseInt(second.innerHTML)
     temp = temp1 + temp2;
-    console.log(temp); 
         timer = setInterval(()=>
         {
         var sec = Math.abs(second.innerHTML)
@@ -61,7 +60,6 @@ function start()
             }
             sec = (sec%60)+1;
         }
-        console.log(sec);
         if(min == 0 & sec == 0)
         {
             speed=0
