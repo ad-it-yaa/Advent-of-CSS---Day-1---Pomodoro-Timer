@@ -34,6 +34,7 @@ function start()
     if(!clicked)
     {
     clicked = true;
+    minute.contentEditable = false;
     second.contentEditable = false;
     var temp1 = minute.innerHTML * 60;
     temp2 = parseInt(second.innerHTML)
@@ -72,10 +73,7 @@ function start()
             {
                 min--
                sec=60;
-                if(min<10)
-                {
-                    min="0"+min
-                }
+            
             }
             
    
