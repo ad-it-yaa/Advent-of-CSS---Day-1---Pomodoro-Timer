@@ -9,6 +9,7 @@ speed = 1000;
 var timer;
 var temp1, temp2,temp;
 var button = document.getElementById('button')
+var clicked = false;
 function reload ()
 {
     location.reload();
@@ -16,6 +17,7 @@ function reload ()
 }
 button.onclick = function edit ()
 {
+    clicked = false;
     clearInterval(timer)
     var sec = second.innerHTML;
     var min = minute.innerHTML;
@@ -26,10 +28,12 @@ button.onclick = function edit ()
 
     
 }
+// strt.onclick = function start()
 function start()
 {
-    
-    minute.contentEditable = false;
+    if(!clicked)
+    {
+    clicked = true;
     second.contentEditable = false;
     var temp1 = minute.innerHTML * 60;
     temp2 = parseInt(second.innerHTML)
@@ -50,14 +54,7 @@ function start()
         else if(sec>60)
         {
             var count = parseInt(sec/60)
-            if(count<10)
-            {
-                min = "0" + count;
-            }
-            else
-            {
-                min = count;
-            }
+            min = count;
             sec = (sec%60)+1;
         }
         if(min == 0 & sec == 0)
@@ -89,6 +86,10 @@ function start()
             sec="0"+sec
             
         }
+        else if(min<10)
+        {
+            min="0"+min
+        }
         second.innerHTML = sec;
         minute.innerHTML = min;
         var tempnew1 = parseInt(second.innerHTML)
@@ -97,4 +98,6 @@ function start()
         var percentage = Math.abs(tempnew/temp*100)
         circle.style.background = `conic-gradient(red ${percentage * 3.6}deg, transparent 0deg)`
         },speed
+        
     )}
+    }
